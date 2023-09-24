@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .customGradient {
+    background: linear-gradient(170deg, #1fa2ff, #12d8fa, #a6ffcb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .customGradient2 {
+    background: linear-gradient(
+      90deg,
+      rgb(147, 250, 69) 26%,
+      rgb(0, 199, 119) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .customGradient-orange {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 139, 0, 1) 0%,
+      rgba(255, 173, 0, 1) 35%,
+      rgba(255, 216, 0, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .customGradient-violet {
+    background: linear-gradient(
+      90deg,
+      rgb(76, 0, 255) 25%,
+      rgb(192, 30, 237) 90%
+    );
+    background-clip: text;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradientBg-violet {
+    background: linear-gradient(
+      90deg,
+      rgb(0, 26, 141) 25%,
+      rgb(36, 24, 141) 90%
+    );
+   
+  }
+  .customGradient-red {
+    background: linear-gradient(
+      45deg,
+      rgba(237, 10, 85, 1) 0%,
+      rgba(249, 0, 0, 1) 54%,
+      rgba(252, 176, 69, 1) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@layer components {
+
+
+  .redborder{
+    border: 2px solid red;
+  }
+
+  .backgroundImage1 {
+    background-image: url("./assets/Images/Know_your_progress.svg");
+  }
+  .backgroundImage2 {
+    background-image: url("./assets/Images/Compare_with_others.svg");
+  }
+  .backgroundImage3 {
+    background-image: url("./assets/Images/Plan_your_lessons.svg");
+  }
+
+  .backgroundImage-loginPage {
+    background-image: url("./assets/Images/login.png");
+  }
+
+  .backgroundImage-instructorLogin {
+    background-image: url("./assets/Images/instructorLogin.png");
+  }
+
+  .backgroundImage-about {
+    background-image: url("./assets/Images/aboutus2.webp");
+  }
+  .backgroundImage-about2 {
+    background-image: url("./assets/Images/FoundingStory.png");
+  }
+
+  .customGradient-Bg {
+    background: linear-gradient(170deg, #1fa2ff, #12d8fa, #a6ffcb);
+  }
+
+  .customGradient-orangeBg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 139, 0, 1) 0%,
+      rgba(255, 173, 0, 1) 35%,
+      rgba(255, 216, 0, 1) 100%
+    );
+  }
+  .customGradient-outline:focus {
+    outline: rgba(0, 136, 255, 0.671);
+    outline-style: outset;
+  }
+
+  .spin-button-none::-webkit-outer-spin-button,
+  .spin-button-none::-webkit-inner-spin-button {
+    appearance: none;
+  }
+
+  .active {
+    color: rgba(255, 214, 10, 1);
+  }
+
+  .customScrollBar::-webkit-scrollbar {
+    background-color: #585d69;
+    border-radius: 3rem;
+    width: 0.8em;
+  }
+  .customScrollBar::-webkit-scrollbar-thumb {
+    background-color: #2c333f;
+    border-radius: 3rem;
+    border: 2px solid #585d69;
+  }
+
+  .reviewBtn {
+    background-image: linear-gradient(
+      45deg,
+      rgba(233, 216, 33, 1) 14%,
+      rgb(255, 222, 7) 38%,
+      rgb(220, 208, 42) 62%,
+      rgb(255, 177, 10) 100%
+    );
+    background-size: 300%;
+    animation-name: gradientChangeReverse;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  
+
+  .reviewBtn:hover {
+    animation-name: gradientChange;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .selectedTab{
+    width:var(--_width,12%);
+    translate:var(--_left,0px) 0;
+    transition-property: translate;
+    transition-timing-function: cubic-bezier(0.86, -0.33, 0.35, 1.15);
+    transition-duration: 400ms;
+    
+  }
+
+  @keyframes gradientChange {
+    0% {
+      background-position: left;
+    }
+    100% {
+      background-position: right;
+    }
+  }
+
+  @keyframes gradientChangeReverse {
+    0% {
+      background-position: right;
+    }
+    100% {
+      background-position: left;
+    }
+  }
+}
