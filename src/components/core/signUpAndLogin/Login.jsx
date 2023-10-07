@@ -10,8 +10,8 @@ import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 
 function Login() {
   const [showPass, setShowPass] = useState(false);
-  const dispatch=useDispatch(); 
-  const navigate=useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -27,13 +27,13 @@ function Login() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    
+
     dispatch(login(email, password, navigate))
   }
 
   return (
     <form
-    onSubmit={handleOnSubmit}
+      onSubmit={handleOnSubmit}
       className='flex flex-col gap-5 ' >
       {/* email address field */}
       <div className='flex flex-col gap-[0.375rem]'>
@@ -64,12 +64,12 @@ function Login() {
           value={password}
           onChange={handleOnChange}
           className='text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline  placeholder:italic'></input>
-          <BsEyeFill
-            className={`cursor-pointer text-richblue-50 absolute right-3 top-[2.35rem] text-2xl `}
-            onClick={() => setShowPass(!showPass)} />
-          <BsEyeSlashFill
-            className={`cursor-pointer text-richblue-50 absolute right-3 top-[2.35rem] text-2xl ${!showPass && 'hidden'}`}
-            onClick={() => setShowPass(!showPass)} />
+        <BsEyeFill
+          className={`cursor-pointer text-richblue-50 absolute right-3 top-[2.35rem] text-2xl `}
+          onClick={() => setShowPass(!showPass)} />
+        <BsEyeSlashFill
+          className={`cursor-pointer text-richblue-50 absolute right-3 top-[2.35rem] text-2xl ${!showPass && 'hidden'}`}
+          onClick={() => setShowPass(!showPass)} />
         {/* forgot passowrd link */}
         <Link
           className='text-xs text-blue-100 text-right'

@@ -63,6 +63,7 @@ export function signUp(
   confirmPassword,
   otp,
   navigate
+
 ) {
   return async (dispatch) => {
 
@@ -71,7 +72,9 @@ export function signUp(
     dispatch(setLoading(true));
 
     try {
+
       const response = await apiConnector("POST", SIGNUP_API, {
+
         accountType,
         firstName,
         lastName,
@@ -84,6 +87,7 @@ export function signUp(
       console.log("SIGNUP API RESPONSE............", response)
 
       if (!response.data.success) {
+
         throw new Error(response.data.message)
       }
       toast.success("Signup Successful");

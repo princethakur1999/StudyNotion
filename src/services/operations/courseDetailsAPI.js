@@ -124,7 +124,7 @@ export const addCourseDetails = async (data, token) => {
   try {
     const response = await apiConnector("POST", CREATE_COURSE_API, data, {
       "Content-Type": "multipart/form-data",
-      Authorisation: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     });
 
     console.log("CREATE COURSE API RESPONSE............", response);
@@ -492,15 +492,24 @@ export const getReviewByUser = async (courseId, token) => {
 
 //get  all rating 
 export const getAllReviewDetails = async () => {
+
   let response = null;
+
   try {
-    response = await apiConnector("GET", REVIEWS_DETAILS_API)
-    console.log("GET REVIEWS DETAILS API RESPONSE............", response)
-    return response
+
+    response = await apiConnector("GET", REVIEWS_DETAILS_API);
+
+    console.log("GET REVIEWS DETAILS API RESPONSE............", response);
+
+    return response;
+
   } catch (error) {
-    console.log("GET REVIEWS DETAILS API ERROR............", error)
-    response = error.response.data
-    return response
+
+    console.log("GET REVIEWS DETAILS API ERROR............", error);
+
+    response = error.response.data;
+
+    return response;
   }
 
 }

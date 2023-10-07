@@ -37,23 +37,35 @@ exports.createCategory = async (req, res) => {
 
 //get all categories
 exports.showAllCategories = async (req, res) => {
+
   try {
     const allCategories = await category.find({}, { name: true, description: true });
+
+    if (!allCategories) {
+
+      return res.status(404).json({
+        success: false,
+        message: 'No categories found',
+      });
+    }
 
     return res.status(200).json({
       success: true,
       message: 'All categories fetched',
-      allCategories
+      allCategories,
     });
 
   } catch (error) {
+    console.error('Error while retrieving Categories:', error);
+
     return res.status(500).json({
       success: false,
-      message: 'Error while retrieving Categories',
-      error
+      message: 'Internal server error',
+      error: error.message, // Send the error message for debugging purposes.
     });
   }
-}
+};
+
 
 exports.categoryPageDetails = async (req, res) => {
   try {

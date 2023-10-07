@@ -1,20 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react'
-import OTPInput from 'react-otp-input'
-import { BsArrowLeft } from 'react-icons/bs'
-import { FaHistory } from 'react-icons/fa'
+import React, { useEffect, useRef, useState } from 'react';
+
+import OTPInput from 'react-otp-input';
+
+import { BsArrowLeft } from 'react-icons/bs';
+import { FaHistory } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendOtp, signUp } from '../services/operations/authAPI';
+
 
 //#####################################################//
 //########### COMPONENTS ARE RESPONSIVE:YES ###########//
 //#####################################################//
 
 function VerifyEmail() {
+
     const [otp, setOtp] = useState('');
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const { signupData } = useSelector((state) => state.auth);
+
     let otpValue = useRef('');
 
     useEffect(() => {
@@ -25,6 +32,7 @@ function VerifyEmail() {
 
 
     function handleOnChange({ target }) {
+
         const value = target.value
         otpValue.current += value;
         setOtp(otpValue.current);
@@ -32,6 +40,7 @@ function VerifyEmail() {
 
 
     function handleOnClick() {
+
         const { accountType,
             firstName,
             lastName,
@@ -48,9 +57,9 @@ function VerifyEmail() {
             otp,
             navigate));
 
-            console.log('signupData: ',signupData)
-            console.log('otp: ',otp)
-            console.log('otp type: ',typeof otp)
+        console.log('signupData: ', signupData)
+        console.log('otp: ', otp)
+        console.log('otp type: ', typeof otp)
 
 
     }
@@ -67,13 +76,13 @@ function VerifyEmail() {
                     <OTPInput
                         value={otp}
                         onChange={setOtp}
-                        numInputs={6}                        
+                        numInputs={6}
                         renderSeparator={<div className='md:w-[3.583rem] w-[0.5rem]'></div>}
                         renderInput={(props) => (
                             <input {...props}
-                            placeholder=' ' 
-                            type='number'  
-                            className='text-center aspect-square min-w-[2.7rem] md:w-[3.583rem] text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline spin-button-none mscale-[0.8] md:scale-100' />)}
+                                placeholder=' '
+                                type='number'
+                                className='text-center aspect-square min-w-[2.7rem] md:w-[3.583rem] text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline spin-button-none mscale-[0.8] md:scale-100' />)}
 
                     />
                 </div>

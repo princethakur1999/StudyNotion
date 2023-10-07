@@ -10,11 +10,16 @@ import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 //#####################################################//
 
 function SignUp({ accountType }) {
+
   const [showPass, setShowPass] = useState(false);
+
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
+
     firstName: "",
     lastName: "",
     email: "",
@@ -144,7 +149,7 @@ function SignUp({ accountType }) {
             name='confirmPassword'
             value={confirmPassword}
             onChange={handleOnChange} className='text-richblack-200 font-medium rounded-md p-3 bg-richblack-800 customGradient-outline  placeholder:italic' />
-            <BsEyeFill
+          <BsEyeFill
             className={`cursor-pointer text-richblue-50 absolute right-3 top-[2.35rem] text-2xl `}
             onClick={() => setShowConfirmPass(!showConfirmPass)} />
           <BsEyeSlashFill

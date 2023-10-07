@@ -8,6 +8,8 @@ const { mailSender } = require('../utils/mailSender');
 const passwordUpdated = require('../mail/templates/passwordUpdate')
 require('dotenv').config();
 
+
+
 //send OTP
 exports.sendOTP = async (req, res) => {
     try {
@@ -36,6 +38,7 @@ exports.sendOTP = async (req, res) => {
         const result = await OTP.findOne({ otp: otp });
 
         while (result) {
+
             otp = otpGenerator(6, {
                 upperCaseAlphabets: false,
                 lowerCaseAlphabets: false,

@@ -24,18 +24,21 @@ function Navbar() {
   const [selected, setSelected] = useState(location.pathname);
   const [subLinks, setSubLinks] = useState([]);
 
+
   const fetchCatalogItems = async () => {
 
     try {
       const result = await apiConnector('GET', courseEndpoints.COURSE_CATEGORIES_API);
       const data = result.data.allCategories;
-      setSubLinks(data)
+
+      setSubLinks(data);
 
     } catch (error) {
-      console.log('Error while fetching category itmes');
-      console.log('Error :', error.message);
+
+      console.log('Error while fetching category items:', error);
     }
-  }
+  };
+
 
   useEffect(() => {
     fetchCatalogItems();
