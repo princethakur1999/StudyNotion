@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_BASE_URL + '/api/v1'
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 //COURSE ENDPOINTS
 export const courseEndpoints = {
