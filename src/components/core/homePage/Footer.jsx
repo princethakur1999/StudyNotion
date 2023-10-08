@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom'
 function Footer() {
 
     return (
+
         <div className='w-full bg-richblack-800 py-[3.25rem] lg:px-[7.5rem] xl:px-[7.5rem] md:px-[3rem] flex flex-col gap-8'>
+
             {/* footer div containing 2 sections */}
             <div className='flex flex-col md:flex-row lg:gap-[5.25rem] md:gap-[2rem] justify-between gap-4'>
                 {/* first footer section */}

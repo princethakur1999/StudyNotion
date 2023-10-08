@@ -15,6 +15,7 @@ import Drawer from './Drawer'
 //#####################################################//
 
 function Navbar() {
+
   const { token } = useSelector((state => state.auth));
   const { user } = useSelector((state => state.profile));
   const { totalItems } = useSelector((state => state.cart));
@@ -28,6 +29,7 @@ function Navbar() {
   const fetchCatalogItems = async () => {
 
     try {
+
       const result = await apiConnector('GET', courseEndpoints.COURSE_CATEGORIES_API);
       const data = result.data.allCategories;
 
@@ -41,11 +43,14 @@ function Navbar() {
 
 
   useEffect(() => {
+
     fetchCatalogItems();
+
   }, [])
 
 
   function changeBgcolor(btn) {
+
     setSelected(`/${btn}`)
   }
 
@@ -55,7 +60,9 @@ function Navbar() {
   }, [location])
 
   return (
+
     <div className='bg-richblack-800 min-h-[4rem] py-[0.65rem] border-b-2 border-richblack-700' >
+
       <div className=' lg:w-[85%]  mx-auto flex pt-1 justify-between items-center shrink-0 w-[95%]'>
         {/* studyNotion logo */}
         <Link
