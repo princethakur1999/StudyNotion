@@ -7,12 +7,16 @@ function getRandomInt(max) {
 
 
 exports.createCategory = async (req, res) => {
+
   try {
+
     const { name, description } = req.body;
 
     //check if any of the fields are empty
     if (!name || !description) {
+
       return res.status(400).json({
+
         success: false,
         message: 'All fields are required'
       });
@@ -44,18 +48,21 @@ exports.showAllCategories = async (req, res) => {
     if (!allCategories) {
 
       return res.status(404).json({
+
         success: false,
         message: 'No categories found',
       });
     }
 
     return res.status(200).json({
+
       success: true,
       message: 'All categories fetched',
       allCategories,
     });
 
   } catch (error) {
+
     console.error('Error while retrieving Categories:', error);
 
     return res.status(500).json({

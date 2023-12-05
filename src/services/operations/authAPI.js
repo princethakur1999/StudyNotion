@@ -1,30 +1,24 @@
-import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast";
+import { setLoading, setToken } from "../../slices/authSlice";
+import { resetCart } from "../../slices/cartSlice";
+import { setUser } from "../../slices/profileSlice";
+import { apiConnector } from "../apiConnector";
+import { authEndpoints } from "../apis";
 
-import { setLoading, setToken } from "../../slices/authSlice"
-import { resetCart } from "../../slices/cartSlice"
-import { setUser } from "../../slices/profileSlice"
-import { apiConnector } from "../apiConnector"
-import { authEndpoints } from "../apis"
 
-const {
-  SENDOTP_API,
-  SIGNUP_API,
-  LOGIN_API,
-  RESETPASSTOKEN_API,
-  RESETPASSWORD_API,
-} = authEndpoints
+const { SENDOTP_API, SIGNUP_API, LOGIN_API, RESETPASSTOKEN_API, RESETPASSWORD_API, } = authEndpoints;
+
 
 export function sendOtp(email, navigate) {
 
-  console.error("MILGYA");
-
   return async (dispatch) => {
 
-    const toastId = toast.loading("Loading...");
+    const toastId = toast.loading("Sending...");
 
     dispatch(setLoading(true));
 
     try {
+
       const response = await apiConnector("POST", SENDOTP_API, {
         email,
         checkUserPresent: true,
@@ -50,6 +44,7 @@ export function sendOtp(email, navigate) {
       toast.error("Could Not Send OTP");
     }
     dispatch(setLoading(false))
+
     toast.dismiss(toastId)
   }
 }

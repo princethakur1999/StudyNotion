@@ -10,19 +10,21 @@ import { courseEndpoints } from '../../services/apis'
 import { AiOutlineDown } from 'react-icons/ai'
 import Drawer from './Drawer'
 
-//#####################################################//
-//########### COMPONENTS ARE RESPONSIVE:YES ###########//
-//#####################################################//
+
+const { COURSE_CATEGORIES_API } = courseEndpoints;
 
 function Navbar() {
 
-  const { token } = useSelector((state => state.auth));
-  const { user } = useSelector((state => state.profile));
-  const { totalItems } = useSelector((state => state.cart));
-
   let location = useLocation();
 
+  const { token } = useSelector((state => state.auth));
+
+  const { user } = useSelector((state => state.profile));
+
+  const { totalItems } = useSelector((state => state.cart));
+
   const [selected, setSelected] = useState(location.pathname);
+
   const [subLinks, setSubLinks] = useState([]);
 
 
@@ -30,16 +32,18 @@ function Navbar() {
 
     try {
 
-      const result = await apiConnector('GET', courseEndpoints.COURSE_CATEGORIES_API);
+      const result = await apiConnector('GET', COURSE_CATEGORIES_API);
+
       const data = result.data.allCategories;
 
       setSubLinks(data);
 
     } catch (error) {
 
-      console.log('Error while fetching category items:', error);
+      console.log('Error in fetching category items:', error);
     }
   };
+
 
 
   useEffect(() => {
@@ -51,12 +55,13 @@ function Navbar() {
 
   function changeBgcolor(btn) {
 
-    setSelected(`/${btn}`)
+    setSelected(`/${btn}`);
   }
 
   useEffect(() => {
-    // to change background color if the path is not login or signup
+
     location.pathname === '/login' || location.pathname === '/signup' ? setSelected(location.pathname) : setSelected('')
+
   }, [location])
 
   return (
@@ -64,6 +69,7 @@ function Navbar() {
     <div className='bg-richblack-800 min-h-[4rem] py-[0.65rem] border-b-2 border-richblack-700' >
 
       <div className=' lg:w-[85%]  mx-auto flex pt-1 justify-between items-center shrink-0 w-[95%]'>
+
         {/* studyNotion logo */}
         <Link
           to={'/'}

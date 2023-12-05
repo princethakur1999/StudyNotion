@@ -20,5 +20,3 @@ exports.mailSender = async (email, title, body) => {
         console.error(error);
     }
 }
-
-//module.exports = mailSender;
